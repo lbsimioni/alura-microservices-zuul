@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "225ec90e-7830-465d-9269-daef4c1a9408",
+		"name": "ZUUL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "[ZUUL] Routes",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{zuulApi}}/actuator/routes",
+					"host": [
+						"{{zuulApi}}"
+					],
+					"path": [
+						"actuator",
+						"routes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ZUUL][DELIVERY] Reserve a Delivery",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestId\": 1,\n    \"searchDate\": \"2021-05-31\",\n    \"forecastDate\": \"2021-06-04\",\n    \"originAddress\": \"Meu endereço\",\n    \"destinationAddress\": \"Endereço 2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{zuulApi}}/delivery/deliveries",
+					"host": [
+						"{{zuulApi}}"
+					],
+					"path": [
+						"delivery",
+						"deliveries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ZUUL][DELIVERY] Get Voucher by Number",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{zuulApi}}/delivery/deliveries/1",
+					"host": [
+						"{{zuulApi}}"
+					],
+					"path": [
+						"delivery",
+						"deliveries",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ZUUL][PROVIDER] Get Provider Info By State",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{zuulApi}}/provider/info/GO",
+					"host": [
+						"{{zuulApi}}"
+					],
+					"path": [
+						"provider",
+						"info",
+						"GO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ZUUL][PROVIDER] Get Products By State",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{zuulApi}}/provider/products/DF",
+					"host": [
+						"{{zuulApi}}"
+					],
+					"path": [
+						"provider",
+						"products",
+						"DF"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ZUUL][PROVIDER] Requests",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": 1,\n        \"amount\": 5\n    },\n    {\n        \"id\": 2,\n        \"amount\": 1\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{zuulApi}}/provider/requests",
+					"host": [
+						"{{zuulApi}}"
+					],
+					"path": [
+						"provider",
+						"requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ZUUL][PROVIDER] Get Request By Id",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{zuulApi}}/provider/requests/1",
+					"host": [
+						"{{zuulApi}}"
+					],
+					"path": [
+						"provider",
+						"requests",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ZUUL][STORE] Purchase",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"items\": [\n        {\n            \"id\": 1,\n            \"amount\": 5\n        },\n        {\n            \"id\": 2,\n            \"amount\": 1\n        }\n    ],\n    \"address\": {\n        \"street\": \"Rua da Maria\",\n        \"number\": \"123\",\n        \"state\": \"GO\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{zuulApi}}/store/purchases",
+					"host": [
+						"{{zuulApi}}"
+					],
+					"path": [
+						"store",
+						"purchases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[ZUUL][STORE] Get By Id",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{zuulApi}}/store/purchases/1",
+					"host": [
+						"{{zuulApi}}"
+					],
+					"path": [
+						"store",
+						"purchases",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
